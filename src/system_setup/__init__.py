@@ -1,4 +1,4 @@
-import bash
+from . import bash
 
 installers = [
         bash.install
