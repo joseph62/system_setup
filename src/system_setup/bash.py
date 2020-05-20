@@ -11,15 +11,13 @@ def install():
 
     filesystem.create_directory_if_not_exists("~/.local/etc/dot-files")
 
+    filesystem.update_file("~/temp/dot-files/aliases", "~/.local/etc/dot-files/aliases")
     filesystem.update_file(
-        "~/temp/dot-files/resources/aliases", "~/.local/etc/dot-files/aliases"
+        "~/temp/dot-files/environment", "~/.local/etc/dot-files/environment"
     )
-    filesystem.update_file(
-        "~/temp/dot-files/resources/environment", "~/.local/etc/dot-files/environment"
-    )
-    filesystem.update_file("~/temp/dot-files/resources/bash_logout", "~/.bash_logout")
-    filesystem.update_file("~/temp/dot-files/resources/profile", "~/.profile")
-    filesystem.update_file("~/temp/dot-files/resources/bashrc", "~/.bashrc")
+    filesystem.update_file("~/temp/dot-files/bash_logout", "~/.bash_logout")
+    filesystem.update_file("~/temp/dot-files/profile", "~/.profile")
+    filesystem.update_file("~/temp/dot-files/bashrc", "~/.bashrc")
 
     logging.info("Installed bash.")
 

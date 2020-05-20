@@ -16,7 +16,7 @@ def install():
         "https://github.com/VundleVimVundle.vim.git", "~/.vim/bundle/Vundle.vim"
     )
 
-    filesystem.update_file("~/temp/dot-files/resources/vimrc", "~/.vimrc")
+    filesystem.update_file("~/temp/dot-files/vimrc", "~/.vimrc")
 
     logging.info("Installed vim.")
 

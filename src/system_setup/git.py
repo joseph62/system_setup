@@ -10,7 +10,7 @@ def install():
         "https://github.com/joseph62/dot-files", "~/temp/dot-files"
     )
 
-    filesystem.update_file("~/temp/dot-files/resources/gitconfig", "~/.gitconfig")
+    filesystem.update_file("~/temp/dot-files/gitconfig", "~/.gitconfig")
 
     logging.info("Installed git.")
 

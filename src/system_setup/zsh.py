@@ -19,12 +19,12 @@ def install():
     )
 
     filesystem.update_file(
-        "~/temp/dot-files/resources/aliases", "~/.local/etc/dot-files/.aliases"
+        "~/temp/dot-files/aliases", "~/.local/etc/dot-files/.aliases"
     )
     filesystem.update_file(
-        "~/temp/dot-files/resources/environment", "~/.local/etc/dot-files/.environment"
+        "~/temp/dot-files/environment", "~/.local/etc/dot-files/.environment"
     )
-    filesystem.update_file("~/temp/dot-files/resources/zshrc", "~/.zshrc")
+    filesystem.update_file("~/temp/dot-files/zshrc", "~/.zshrc")
 
     logging.info("Installed zsh.")
 
