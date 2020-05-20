@@ -18,10 +18,8 @@ def get_all_files(path):
 def update_all_files(source_path, destination_path):
     expanded_source = os.path.expanduser(source_path)
     expanded_destination = os.path.expanduser(destination_path)
-    for file_path in filesystem.get_all_files(expanded_source):
-        filesystem.update_file(
-            file_path.path, os.path.join(expanded_destination, file_path.name)
-        )
+    for file_path in get_all_files(expanded_source):
+        update_file(file_path.path, os.path.join(expanded_destination, file_path.name))
 
 
 def create_directory_if_not_exists(path):
