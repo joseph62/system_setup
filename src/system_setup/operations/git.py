@@ -3,6 +3,7 @@ import os
 import logging
 from . import process
 
+
 def clone_repository_if_not_exists(repository, path):
     expanded_path = os.path.expanduser(path)
     if os.path.exists(expanded_path):
@@ -12,4 +13,6 @@ def clone_repository_if_not_exists(repository, path):
         if process.successful_process(git):
             logging.info(f"{repository} successfully cloned to {expanded_path}.")
         else:
-            logging.error(f"{repository} was not successfully cloned to {expanded_path}!")
+            logging.error(
+                f"{repository} was not successfully cloned to {expanded_path}!"
+            )
