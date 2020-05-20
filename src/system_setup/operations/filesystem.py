@@ -45,3 +45,14 @@ def update_file(source_path, destination_path):
         backup_file(expanded_destination_path)
     shutil.copy2(expanded_source_path, expanded_destination_path)
     logging.info(f"{expanded_source_path} copied to {expanded_destination_path}")
+
+
+def remove_directory_if_exists(path):
+    expanded_path = os.path.expanduser(path)
+    if os.path.isdir(expanded_path):
+        logging.info(f"Removing {expanded_path}")
+        shutil.rmtree(expanded_path, ignore_errors=True)
+    elif os.path.exists(expanded_path):
+        logging.error(f"Unable to remove {expanded_path} because it is not a directory")
+    else:
+        logging.warn(f"Unable to remove {expanded_path} because it does not exist")

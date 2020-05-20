@@ -21,5 +21,13 @@ def install():
     logging.info("Installed vim.")
 
 
+def cleanup():
+    logging.info("Cleaning up vim...")
+
+    filesystem.remove_directory_if_exists("~/temp/dot-files")
+
+    logging.info("Cleaned up vim.")
+
+
 if __name__ == "__main__":
     install()

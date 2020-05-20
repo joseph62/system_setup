@@ -29,5 +29,13 @@ def install():
     logging.info("Installed zsh.")
 
 
+def cleanup():
+    logging.info("Cleaning up zsh...")
+
+    filesystem.remove_directory_if_exists("~/temp/dot-files")
+
+    logging.info("Cleaned up zsh.")
+
+
 if __name__ == "__main__":
     install()

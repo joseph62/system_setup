@@ -19,5 +19,13 @@ def install():
     logging.info("Installed scripts.")
 
 
+def cleanup():
+    logging.info("Cleaning up scripts...")
+
+    filesystem.remove_directory_if_exists("~/temp/Scripts")
+
+    logging.info("Cleaned up scripts.")
+
+
 if __name__ == "__main__":
     install()
