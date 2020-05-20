@@ -1,9 +1,12 @@
 import logging
 
-from . import bash
+from . import bash, git, vim, zsh
 
 installers = [
-        bash.install
+        bash.install,
+        git.install,
+        vim.install,
+        zsh.install 
         ]
 
 logging.basicConfig(level=logging.INFO)
