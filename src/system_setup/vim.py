@@ -13,7 +13,7 @@ def install():
         "https://github.com/joseph62/dot-files", "~/temp/dot-files"
     )
     git.clone_repository_if_not_exists(
-        "https://github.com/VundleVimVundle.vim.git", "~/.vim/bundle/Vundle.vim"
+        "https://github.com/VundleVim/Vundle.vim.git", "~/.vim/bundle/Vundle.vim"
     )
 
     filesystem.update_file("~/temp/dot-files/vimrc", "~/.vimrc")

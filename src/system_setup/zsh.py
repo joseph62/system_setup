@@ -15,7 +15,7 @@ def install():
     )
     git.clone_repository_if_not_exists(
         "https://github.com/zsh-users/zsh-syntax-highlighting",
-        "~/.local/opt/zsh-sytax-highlighting",
+        "~/.local/opt/zsh-syntax-highlighting",
     )
 
     filesystem.update_file(
