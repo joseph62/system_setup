@@ -18,13 +18,10 @@ def install():
         "~/.local/opt/zsh-syntax-highlighting",
     )
     git.clone_repository_if_not_exists(
-        "https://github.com/ohmyzsh/ohmyzsh.git",
-        "~/.local/opt/ohmyzsh",
-    ) 
-
-    filesystem.update_file(
-        "~/temp/dot-files/aliases", "~/.local/etc/dot-files/aliases"
+        "https://github.com/ohmyzsh/ohmyzsh.git", "~/.local/opt/ohmyzsh"
     )
+
+    filesystem.update_file("~/temp/dot-files/aliases", "~/.local/etc/dot-files/aliases")
     filesystem.update_file(
         "~/temp/dot-files/environment", "~/.local/etc/dot-files/environment"
     )
