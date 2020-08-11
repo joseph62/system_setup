@@ -28,7 +28,7 @@ def parse_args(args):
         "--logging-level",
         help="The level of logging to use. Default is INFO.",
         choices=LOGGING_OPTIONS.keys(),
-        default=logging.INFO,
+        default="INFO",
     )
     return parser.parse_args(args)
 
