@@ -1,0 +1,7 @@
+#! /usr/bin/env bash
+
+current_dir=$(pwd)
+script_dir=$(dirname $0)
+cd $script_dir/src
+python3 -m system_setup $@
+cd $current_dir
