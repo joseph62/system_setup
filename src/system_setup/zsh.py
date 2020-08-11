@@ -2,6 +2,8 @@ import logging
 
 from .operations import filesystem, git
 
+NAME = "zsh"
+
 
 def install():
     logging.info("Installing zsh...")

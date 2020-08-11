@@ -1,6 +1,8 @@
 import logging
 from .operations import filesystem, git
 
+NAME = "bash"
+
 
 def install():
     logging.info("Installing bash...")

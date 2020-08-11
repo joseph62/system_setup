@@ -2,6 +2,8 @@ import logging
 
 from .operations import filesystem, git
 
+NAME = "vim"
+
 
 def install():
     logging.info("Installing vim...")

@@ -2,6 +2,8 @@ import logging
 
 from .operations import filesystem, git
 
+NAME = "scripts"
+
 
 def install():
     logging.info("Installing scripts...")
