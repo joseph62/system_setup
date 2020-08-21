@@ -8,6 +8,7 @@ FilePath = collections.namedtuple("FilePath", ["path", "name"])
 UPDATED_PATHS = set()
 REMOVED_PATHS = set()
 
+
 def get_all_files(path):
     expanded_path = os.path.expanduser(path)
     return [
@@ -45,7 +46,7 @@ def update_file(source_path, destination_path):
     if expanded_destination_path in UPDATED_PATHS:
         logging.info(f"{expanded_destination_path} has already been updated this run.")
     else:
-        if  UPDATED_PATHS and os.path.exists(expanded_destination_path):
+        if os.path.exists(expanded_destination_path):
             logging.warn(f"{expanded_destination_path} already exists")
             backup_file(expanded_destination_path)
         shutil.copy2(expanded_source_path, expanded_destination_path)
