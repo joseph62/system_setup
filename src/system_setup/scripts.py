@@ -19,4 +19,3 @@ def install():
 
 def cleanup():
     filesystem.remove_directory_if_exists("~/temp/Scripts")
-
