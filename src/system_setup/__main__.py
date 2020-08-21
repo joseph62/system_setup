@@ -35,9 +35,9 @@ def parse_args(args):
 
 def run_installers(setups):
     for setup in setups:
-        logging.info(f"installing up {setup.NAME}...")
+        logging.info(f"Installing {setup.NAME}...")
         setup.install()
-        logging.info(f"installed up {setup.NAME}.")
+        logging.info(f"Installed {setup.NAME}.")
 
 
 def run_cleaners(setups):
