@@ -23,6 +23,9 @@ def install():
         "~/temp/dot-files/ipython/interactive.py",
         "~/.local/etc/ipython/profile_default/startup/interactive.py",
     )
+    filesystem.update_file(
+        "~/temp/dot-files/environment", "~/.local/etc/dot-files/environment"
+    )
 
 
 def cleanup():
