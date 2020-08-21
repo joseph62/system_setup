@@ -1,11 +1,17 @@
 import logging
 
-from .operations import filesystem, git
+from .operations import filesystem, git, package_manager
 
 NAME = "vim"
 
 
 def install():
+    package_manager.install_program_if_not_exists("vim", {
+        "apt": "sudo apt install vim",
+        "dnf": "sudo dnf install vim",
+        "brew": "brew install vim"
+    })
+
     filesystem.create_directory_if_not_exists("~/temp")
     filesystem.create_directory_if_not_exists("~/.vim/bundle")
 
