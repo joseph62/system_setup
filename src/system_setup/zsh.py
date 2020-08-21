@@ -6,8 +6,6 @@ NAME = "zsh"
 
 
 def install():
-    logging.info("Installing zsh...")
-
     filesystem.create_directory_if_not_exists("~/temp")
     filesystem.create_directory_if_not_exists("~/.local/opt")
     filesystem.create_directory_if_not_exists("~/.local/etc/dot-files")
@@ -29,15 +27,9 @@ def install():
     )
     filesystem.update_file("~/temp/dot-files/zshrc", "~/.zshrc")
 
-    logging.info("Installed zsh.")
-
 
 def cleanup():
-    logging.info("Cleaning up zsh...")
-
     filesystem.remove_directory_if_exists("~/temp/dot-files")
-
-    logging.info("Cleaned up zsh.")
 
 
 if __name__ == "__main__":

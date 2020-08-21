@@ -5,8 +5,6 @@ NAME = "bash"
 
 
 def install():
-    logging.info("Installing bash...")
-
     filesystem.create_directory_if_not_exists("~/.local/etc/dot-files")
     filesystem.create_directory_if_not_exists("~/temp")
 
@@ -22,15 +20,9 @@ def install():
     filesystem.update_file("~/temp/dot-files/profile", "~/.profile")
     filesystem.update_file("~/temp/dot-files/bashrc", "~/.bashrc")
 
-    logging.info("Installed bash.")
-
 
 def cleanup():
-    logging.info("Cleaning up bash...")
-
     filesystem.remove_directory_if_exists("~/temp/dot-files")
-
-    logging.info("Cleaned up bash.")
 
 
 if __name__ == "__main__":

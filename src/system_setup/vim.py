@@ -6,8 +6,6 @@ NAME = "vim"
 
 
 def install():
-    logging.info("Installing vim...")
-
     filesystem.create_directory_if_not_exists("~/temp")
     filesystem.create_directory_if_not_exists("~/.vim/bundle")
 
@@ -20,15 +18,9 @@ def install():
 
     filesystem.update_file("~/temp/dot-files/vimrc", "~/.vimrc")
 
-    logging.info("Installed vim.")
-
 
 def cleanup():
-    logging.info("Cleaning up vim...")
-
     filesystem.remove_directory_if_exists("~/temp/dot-files")
-
-    logging.info("Cleaned up vim.")
 
 
 if __name__ == "__main__":
