@@ -22,6 +22,3 @@ def install():
 def cleanup():
     filesystem.remove_directory_if_exists("~/temp/dot-files")
 
-
-if __name__ == "__main__":
-    install()

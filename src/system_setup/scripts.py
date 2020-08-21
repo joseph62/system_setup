@@ -20,6 +20,3 @@ def install():
 def cleanup():
     filesystem.remove_directory_if_exists("~/temp/Scripts")
 
-
-if __name__ == "__main__":
-    install()
