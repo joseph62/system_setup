@@ -3,11 +3,14 @@ import os
 import logging
 from . import process
 
+
 def add_arguments(parser):
     pass
 
+
 def configure_operation(args):
     pass
+
 
 def _clone(repository, path):
     return subprocess.run(["git", "clone", repository, path])

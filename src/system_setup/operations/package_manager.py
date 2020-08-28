@@ -4,18 +4,27 @@ import shlex
 from dataclasses import dataclass
 from .process import successful_process, program_exists
 
+
 @dataclass
 class Configuration:
     disable_package_manager: bool
 
+
 CONFIGURATION = Configuration(disable_package_manager=True)
 
+
 def add_arguments(parser):
-    parser.add_argument("--install-packages", help="Enable package manager installs", action="store_true")
+    parser.add_argument(
+        "--install-packages",
+        help="Enable package manager installs",
+        action="store_true",
+    )
+
 
 def configure_operation(args):
     global CONFIGURATION
     CONFIGURATION.disable_package_manager = not args.install_packages
+
 
 def install_program_if_not_exists(program, package_manager_options):
     if CONFIGURATION.disable_package_manager:

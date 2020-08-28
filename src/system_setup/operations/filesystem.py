@@ -8,11 +8,14 @@ FilePath = collections.namedtuple("FilePath", ["path", "name"])
 UPDATED_PATHS = set()
 REMOVED_PATHS = set()
 
+
 def add_arguments(parser):
     pass
 
+
 def configure_operation(args):
     pass
+
 
 def get_all_files(path):
     expanded_path = os.path.expanduser(path)
