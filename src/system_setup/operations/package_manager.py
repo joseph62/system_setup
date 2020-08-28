@@ -19,3 +19,4 @@ def install_program_if_not_exists(program, package_manager_options):
                     logging.info(f"Successfully installed {program}")
                 else:
                     logging.warn(f"Failed to install {program}")
+                break
