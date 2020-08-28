@@ -1,5 +1,10 @@
 import subprocess
 
+def add_arguments(parser):
+    pass
+
+def configure_operation(args):
+    pass
 
 def successful_process(process):
     return process.returncode == 0
