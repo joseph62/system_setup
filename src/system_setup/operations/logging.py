@@ -1,23 +1,17 @@
 import logging
 
-LOGGING_OPTIONS = {
-    "DEBUG": logging.DEBUG,
-    "INFO": logging.INFO,
-    "WARNING": logging.WARNING,
-    "ERROR": logging.ERROR,
-    "CRITICAL": logging.CRITICAL,
-}
+LOGGING_OPTIONS = [logging.ERROR, logging.INFO, logging.DEBUG]
 
 
 def add_arguments(parser):
     parser.add_argument(
-        "-l",
-        "--logging-level",
-        help="The level of logging to use. Default is INFO.",
-        choices=LOGGING_OPTIONS.keys(),
-        default="INFO",
+        "-v",
+        "--verbose",
+        help="The level of logging to provide",
+        action="count",
+        default=0,
     )
 
 
 def configure_operation(args):
-    logging.basicConfig(level=LOGGING_OPTIONS[args.logging_level])
+    logging.basicConfig(level=LOGGING_OPTIONS[args.verbose % len(LOGGING_OPTIONS)])
