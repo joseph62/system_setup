@@ -8,6 +8,7 @@ LOGGING_OPTIONS = {
     "CRITICAL": logging.CRITICAL,
 }
 
+
 def add_arguments(parser):
     parser.add_argument(
         "-l",
@@ -18,7 +19,5 @@ def add_arguments(parser):
     )
 
 
-
 def configure_operation(args):
     logging.basicConfig(level=LOGGING_OPTIONS[args.logging_level])
-
