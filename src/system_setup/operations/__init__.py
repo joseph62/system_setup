@@ -1,6 +1,6 @@
-from . import filesystem, git, package_manager, process
+from . import filesystem, git, package_manager, process, logging
 
-operations = [filesystem, git, package_manager, process]
+operations = [filesystem, git, package_manager, process, logging]
 
 
 def add_arguments(parser):
