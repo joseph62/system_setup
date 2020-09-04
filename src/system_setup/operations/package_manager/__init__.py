@@ -1,13 +1,9 @@
 import subprocess
 import logging
 import shlex
-from dataclasses import dataclass
-from .process import successful_process, program_exists
-
-
-@dataclass
-class Configuration:
-    disable_package_manager: bool
+from ..process import successful_process, program_exists
+from .configuration import Configuration
+from .helpers import *
 
 
 CONFIGURATION = Configuration(disable_package_manager=True)
@@ -44,23 +40,3 @@ def install_program_if_not_exists(program, package_manager_options):
                 else:
                     logging.warn(f"Failed to install {program}")
                 break
-
-
-def brew(*packages):
-    return ("brew", f"brew install {' '.join(packages)}")
-
-
-def apt(*packages):
-    return ("apt", f"sudo apt install {' '.join(packages)}")
-
-
-def dnf(*packages):
-    return ("dnf", f"sudo dnf install {' '.join(packages)}")
-
-
-def options(*package_managers):
-    return dict(package_managers)
-
-
-def same_package(package, *package_managers):
-    return [package_manager(package) for package_manager in package_managers]

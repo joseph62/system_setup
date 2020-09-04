@@ -3,6 +3,7 @@ from .operations.package_manager import options, brew, apt, dnf, same_package
 
 NAME = "other-packages"
 
+
 def install():
     package_manager.install_program_if_not_exists(
         "rlwrap", options(*same_package("rlwrap", brew, apt, dnf))
