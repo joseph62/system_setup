@@ -15,7 +15,7 @@ def install():
         },
     )
     package_manager.install_program_if_not_exists(
-        "ipython3",
+        "ipython",
         {
             "apt": "sudo apt install ipython3",
             "dnf": "sudo dnf install ipython3",
