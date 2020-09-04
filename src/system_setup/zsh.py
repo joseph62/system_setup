@@ -1,18 +1,14 @@
 import logging
 
 from .operations import filesystem, git, package_manager
+from .operations.package_manager import brew, apt, dnf, same_package, options
 
 NAME = "zsh"
 
 
 def install():
     package_manager.install_program_if_not_exists(
-        "zsh",
-        {
-            "apt": "sudo apt install zsh",
-            "dnf": "sudo dnf install zsh",
-            "brew": "brew install zsh",
-        },
+        "zsh", options(*same_package("zsh", brew, apt, dnf))
     )
     filesystem.create_directory_if_not_exists("~/temp")
     filesystem.create_directory_if_not_exists("~/.local/opt")

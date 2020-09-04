@@ -1,18 +1,14 @@
 import logging
 
 from .operations import filesystem, git, package_manager
+from .operations.package_manager import options, same_package, brew, apt, dnf
 
 NAME = "vim"
 
 
 def install():
     package_manager.install_program_if_not_exists(
-        "vim",
-        {
-            "apt": "sudo apt install vim",
-            "dnf": "sudo dnf install vim",
-            "brew": "brew install vim",
-        },
+        "vim", options(*same_package("vim", brew, apt, dnf))
     )
 
     filesystem.create_directory_if_not_exists("~/temp")
