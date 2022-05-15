@@ -36,13 +36,12 @@ def run_cleaners(setups):
 def main(args):
     operations.configure_operations(args)
 
+    used_setups = setups
     if args.include:
-        included_setups = [s for s in setups if s.NAME in args.include]
-        run_installers(included_setups)
-        run_cleaners(included_setups)
-    else:
-        run_installers(setups)
-        run_cleaners(setups)
+        used_setups = [s for s in setups if s.NAME in args.include]
+
+    run_installers(used_setups)
+    run_cleaners(used_setups)
 
     return 0
 
