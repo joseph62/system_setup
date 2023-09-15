@@ -1,7 +1,4 @@
-#! /usr/bin/env bash
+#! /usr/bin/env sh
 
-current_dir=$(pwd)
 script_dir=$(dirname $0)
-cd $script_dir/src
-python3 -m system_setup $@
-cd $current_dir
+ansible-playbook "$script_dir/src/playbook.yml"
