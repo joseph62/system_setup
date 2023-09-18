@@ -1,4 +1,4 @@
 #! /usr/bin/env sh
 
 script_dir=$(dirname $0)
-ansible-playbook -K "$script_dir/src/playbook.yml"
+ansible-playbook -K "$script_dir/main.yml"

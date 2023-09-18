@@ -1,0 +1,26 @@
+- name: Install flatpak
+  ansible.builtin.package:
+    name:
+      - flatpak
+    state: present
+- name: Add flathub repository
+  ansible.builtin.command: flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+  ignore_errors: true
+- name: Install packages from flatpak
+  community.general.flatpak:
+    name:
+      - com.visualstudio.code
+      - org.gimp.GIMP
+      - org.videolan.VLC
+      - org.gnome.Boxes
+      - org.kde.okular
+      - us.zoom.Zoom
+    state: present
+- name: Install personal packages from flatpak
+  community.general.flatpak:
+    name:
+      - org.signal.Signal
+      - com.discordapp.Discord
+      - com.spotify.Client
+      - com.valvesoftware.Steam
+    state: present

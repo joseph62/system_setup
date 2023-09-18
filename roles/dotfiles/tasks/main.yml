@@ -1,0 +1,26 @@
+
+- name: Clone repos
+  ansible.builtin.git:
+    repo: "https://github.com/joseph62/dot-files.git"
+    dest: "{{ lookup('env', 'HOME') }}/.local/etc/dot-files"
+- name: Symlink rc files
+  ansible.builtin.file:
+    src: "{{ lookup('env', 'HOME') }}/.local/etc/dot-files/{{ item }}"
+    dest: "{{ lookup('env', 'HOME') }}/.{{ item }}"
+    force: true
+    state: link
+  loop:
+    - zshrc
+    - bashrc
+    - vimrc
+    - gitconfig
+    - profile
+    - bash_logout
+- name: Make home directories
+  ansible.builtin.file:
+    path: "{{ lookup('env', 'HOME') }}/{{ item }}"
+    state: directory
+  loop:
+    - Projects
+    - Downloads
+    - .local/share/tldr
