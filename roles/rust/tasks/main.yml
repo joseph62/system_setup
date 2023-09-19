@@ -1,7 +1,7 @@
 - name: Cargo is installed check
   ansible.builtin.stat:
     path: "{{ lookup('env', 'HOME') }}/.cargo"
-  register: cargo_installed
+  register: cargo_installation
 - name: Download rustup install script
   when: cargo_installation.stat.exists == false
   ansible.builtin.get_url:

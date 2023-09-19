@@ -6,7 +6,7 @@
   become: true
 - name: OhMyZsh is installed check
   ansible.builtin.stat:
-    path: "{{ lookup('env', 'HOME') }}/.oh-my-zsh"
+    path: "{{ lookup('env', 'HOME') }}/.oh-my-zsh/oh-my-zsh.sh"
   register: omz_installation
 - name: Download ohmyzsh install script
   when: omz_installation.stat.exists == false
