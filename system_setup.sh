@@ -25,4 +25,4 @@ if ! [ $(command -v ansible-playbook) ]; then
 fi
 
 script_dir=$(dirname $0)
-ansible-playbook -K "$script_dir/main.yml"
+ansible-playbook -K "$script_dir/main.yml" $@

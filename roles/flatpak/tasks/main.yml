@@ -3,7 +3,12 @@
     name:
       - flatpak
     state: present
+  become: true
+- name: Check for flathub repository
+  shell: flatpak remotes --columns url | grep flathub
+  register: flathub_check
 - name: Add flathub repository
+  when: flathub_check.rc != 0
   ansible.builtin.command: flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 - name: Install packages from flatpak
   community.general.flatpak:
@@ -11,13 +16,10 @@
       - com.visualstudio.code
       - org.gimp.GIMP
       - org.videolan.VLC
-      - org.gnome.Boxes
+      - io.podman_desktop.PodmanDesktop
+      - org.mozilla.firefox
       - org.kde.okular
       - us.zoom.Zoom
-    state: present
-- name: Install personal packages from flatpak
-  community.general.flatpak:
-    name:
       - org.signal.Signal
       - com.discordapp.Discord
       - com.spotify.Client

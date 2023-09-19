@@ -26,8 +26,6 @@
           - jq
           - jo
           - tldr
-          - watch
-          - mit-scheme
           - fzf
         state: present
       become: true
