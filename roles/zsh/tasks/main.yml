@@ -3,7 +3,7 @@
     name:
       - zsh
       - git
-  become: true
+  become: "{{ ansible_distribution != 'MacOSX' }}"
 - name: OhMyZsh is installed check
   ansible.builtin.stat:
     path: "{{ lookup('env', 'HOME') }}/.oh-my-zsh/oh-my-zsh.sh"

@@ -5,7 +5,8 @@
     - dotfiles
     - zsh
     - rust
-    - flatpak
+    - name: flatpak
+      when: ansible_distribution != "MacOSX"
   tasks:
     - name: Clone repos
       ansible.builtin.git:
@@ -28,7 +29,7 @@
           - tldr
           - fzf
         state: present
-      become: true
+      become: "{{ ansible_distribution != 'MacOSX' }}"
       ignore_errors: true
     - name: Install packages from pip
       ansible.builtin.pip:
