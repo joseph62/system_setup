@@ -11,11 +11,9 @@
     state: link
   loop:
     - zshrc
-    - bashrc
     - vimrc
     - gitconfig
-    - profile
-    - bash_logout
+    - zprofile
 - name: Make home directories
   ansible.builtin.file:
     path: "{{ lookup('env', 'HOME') }}/{{ item }}"

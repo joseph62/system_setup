@@ -1,0 +1,12 @@
+- name: Download rustup install script
+  register: cargo_installer_downloaded
+  ansible.builtin.get_url:
+    dest: "{{ lookup('env', 'HOME') }}/Downloads/rustup_install.sh"
+    url: https://sh.rustup.rs
+    mode: "0777"
+- name: Invoke rustup install script
+  changed_when: cargo_installer_downloaded
+  ansible.builtin.command:
+    argv:
+      - "{{ lookup('env', 'HOME') }}/Downloads/rustup_install.sh"
+      - "-y"
