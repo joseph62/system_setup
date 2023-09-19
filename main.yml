@@ -1,24 +1,23 @@
 ---
 - name: Configure machine
   hosts: localhost
+  roles:
+    - dotfiles
+    - zsh
+    - rust
+    - flatpak
   tasks:
-    - name: Configure dot files
-      include_role:
-        name: dotfiles
     - name: Clone repos
       ansible.builtin.git:
         repo: "{{ item.repo }}"
         dest: "{{ lookup('env', 'HOME') }}/{{ item.dest }}"
       loop:
         - { repo: "https://github.com/joseph62/Scripts.git", dest: ".local/opt/Scripts" }
-        - { repo: "https://github.com/zsh-users/zsh-syntax-highlighting.git", dest: ".local/opt/zsh-syntax-highlighting" }
-        - { repo: "https://github.com/ohmyzsh/ohmyzsh.git", dest: ".local/opt/ohmyzsh" }
         - { repo: "https://github.com/VundleVim/Vundle.vim.git", dest: ".vim/bundle/Vundle.vim"}
         - { repo: "https://github.com/asdf-vm/asdf.git", dest: ".asdf"}
     - name: Install packages from package manager
       ansible.builtin.package:
         name:
-          - zsh
           - curl
           - htop
           - rlwrap
@@ -33,9 +32,6 @@
         state: present
       become: true
       ignore_errors: true
-    - name: Install rust
-      include_role:
-        name: rust
     - name: Install packages from pip
       ansible.builtin.pip:
         name:
@@ -50,8 +46,3 @@
           - ripgrep
           - bat
         state: present
-    - name: Install flatpak
-      include_role:
-        name: flatpak
-      tags:
-        - gui

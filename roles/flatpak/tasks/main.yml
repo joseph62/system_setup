@@ -5,7 +5,6 @@
     state: present
 - name: Add flathub repository
   ansible.builtin.command: flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
-  ignore_errors: true
 - name: Install packages from flatpak
   community.general.flatpak:
     name:
