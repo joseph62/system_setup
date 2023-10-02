@@ -33,12 +33,26 @@
         state: present
       become: "{{ ansible_distribution != 'MacOSX' }}"
       ignore_errors: true
-    - name: Install python build packages for fedora
+    - name: Install build packages for fedora
       ansible.builtin.package:
         name:
+          - gcc 
           - python3-devel
           - zlib
           - zlib-devel
+          - patch
+          - bzip2
+          - bzip2-devel
+          - readline-devel
+          - sqlite
+          - sqlite-devel
+          - openssl-devel
+          - tk-devel
+          - libffi-devel
+          - xz-devel
+          - libuuid-devel
+          - gdbm-libs
+          - libnsl2
         state: present
       when: ansible_distribution == 'Fedora'
       become: true
