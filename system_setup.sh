@@ -10,7 +10,7 @@ then
     if  [ "$NAME" = "Ubuntu" ]
     then
         sudo apt install python3-pip
-    elif  [ "$NAME" = "Fedora" ]
+    elif  [ "$NAME" = "Fedora Linux" ]
     then
         sudo dnf install python3-pip
     elif [ "$OSTYPE" = "darwin"* ]
