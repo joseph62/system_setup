@@ -1,5 +1,5 @@
 
-- name: Clone repos
+- name: Clone rc files
   ansible.builtin.git:
     repo: "https://github.com/joseph62/dot-files.git"
     dest: "{{ lookup('env', 'HOME') }}/.local/etc/dot-files"
@@ -13,7 +13,6 @@
     - zshrc
     - vimrc
     - gitconfig
-    - zprofile
 - name: Make home directories
   ansible.builtin.file:
     path: "{{ lookup('env', 'HOME') }}/{{ item }}"

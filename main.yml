@@ -5,8 +5,10 @@
     - dotfiles
     - zsh
     - rust
+    - rtx
     - name: flatpak
       when: ansible_distribution != "MacOSX"
+      tags: flatpak
   tasks:
     - name: Clone repos
       ansible.builtin.git:
@@ -15,10 +17,10 @@
       loop:
         - { repo: "https://github.com/joseph62/Scripts.git", dest: ".local/opt/Scripts" }
         - { repo: "https://github.com/VundleVim/Vundle.vim.git", dest: ".vim/bundle/Vundle.vim"}
-        - { repo: "https://github.com/asdf-vm/asdf.git", dest: ".asdf"}
     - name: Install packages from package manager
       ansible.builtin.package:
         name:
+          - gcc
           - curl
           - htop
           - rlwrap
