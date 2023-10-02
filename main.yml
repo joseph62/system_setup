@@ -39,6 +39,7 @@
           - python3-devel
         state: present
       when: ansible_distribution == 'Fedora'
+      become: true
     - name: Install packages from pip
       ansible.builtin.pip:
         name:

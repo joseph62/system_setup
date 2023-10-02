@@ -3,7 +3,7 @@
     name:
       - flatpak
     state: present
-    become: true
+  become: true
 - name: Check for flathub repository
   shell: flatpak remotes --columns url | grep flathub
   register: flathub_check
