@@ -8,7 +8,9 @@
     - rtx
     - name: flatpak
       when: ansible_distribution != "MacOSX"
-      tags: flatpak
+      tags: 
+        - flatpak
+        - never
   tasks:
     - name: Clone repos
       ansible.builtin.git:
