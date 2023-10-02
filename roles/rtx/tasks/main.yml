@@ -1,6 +1,6 @@
 - name: rtx is installed check
   ansible.builtin.stat:
-    path: "{{ lookup('env', 'HOME') }}/.rtx"
+    path: "{{ lookup('env', 'HOME') }}/.local/bin/rtx"
   register: rtx_installation
 - name: Download rtx install script
   when: rtx_installation.stat.exists == false
@@ -13,6 +13,5 @@
   ansible.builtin.command:
     argv:
       - "{{ lookup('env', 'HOME') }}/Downloads/rtx_install.sh"
-      - "-y"
   environment:
-    RTX_INSTALL_PATH: "{{ lookup('env', 'HOME') }}/.rtx"
+    RTX_INSTALL_PATH: "{{ lookup('env', 'HOME') }}/.local/bin/rtx"
