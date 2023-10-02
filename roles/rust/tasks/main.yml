@@ -1,3 +1,8 @@
+- name: Install required packages for rust install
+  ansible.builtin.package:
+    name:
+      - curl
+  become: "{{ ansible_distribution != 'MacOSX' }}"
 - name: Cargo is installed check
   ansible.builtin.stat:
     path: "{{ lookup('env', 'HOME') }}/.cargo"
