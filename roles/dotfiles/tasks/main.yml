@@ -20,4 +20,5 @@
   loop:
     - Projects
     - Downloads
+    - temp
     - .local/share/tldr
