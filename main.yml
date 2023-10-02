@@ -17,7 +17,7 @@
       loop:
         - { repo: "https://github.com/joseph62/Scripts.git", dest: ".local/opt/Scripts" }
         - { repo: "https://github.com/VundleVim/Vundle.vim.git", dest: ".vim/bundle/Vundle.vim"}
-    - name: Install packages from package manager
+    - name: Install general packages from package manager
       ansible.builtin.package:
         name:
           - gcc
@@ -33,6 +33,12 @@
         state: present
       become: "{{ ansible_distribution != 'MacOSX' }}"
       ignore_errors: true
+    - name: Install fedora packages from package manager
+      ansible.builtin.package:
+        name:
+          - python3-devel
+        state: present
+      when: ansible_distribution == 'Fedora'
     - name: Install packages from pip
       ansible.builtin.pip:
         name:
