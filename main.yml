@@ -33,7 +33,38 @@
         state: present
       become: "{{ ansible_distribution != 'MacOSX' }}"
       ignore_errors: true
-    - name: Install build packages for fedora
+    - name: Install python build packages for macos
+      ansible.builtin.package:
+        name:
+          - openssl
+          - readline
+          - sqlite3
+          - xz
+          - zlib
+          - tcl-tk
+        state: present
+      when: ansible_distribution == 'MacOSX'
+    - name: Install python build packages for ubuntu
+      ansible.builtin.package:
+        name:
+          - build-essential
+          - libssl-dev
+          - zlib1g-dev
+          - libbz2-dev
+          - libreadline-dev
+          - libsqlite3-dev
+          - curl
+          - libncursesw5-dev
+          - xz-utils
+          - tk-dev
+          - libxml2-dev
+          - libxmlsec1-dev
+          - libffi-dev
+          - liblzma-dev
+        state: present
+      when: ansible_distribution == 'Ubuntu'
+      become: true
+    - name: Install python build packages for fedora
       ansible.builtin.package:
         name:
           - gcc 
