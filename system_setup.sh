@@ -1,6 +1,6 @@
 #! /usr/bin/env sh
 
-if [[ ! "$(command -v pip3)" ]]; then
+if ! [[ "$(command -v pip3)" ]]; then
     if [[ -f /etc/os-release ]]; then
         . /etc/os-release
     fi
@@ -10,7 +10,7 @@ if [[ ! "$(command -v pip3)" ]]; then
     elif  [[ "$NAME" == "Fedora" ]]; then
         sudo dnf install python3-pip
     elif [[ "$OSTYPE" == "darwin"* ]]; then
-        if [[ ! "$(command -v brew)" ]]; then
+        if ! [[  "$(command -v brew)" ]]; then
             /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
         fi
         brew install python3
@@ -20,7 +20,7 @@ if [[ ! "$(command -v pip3)" ]]; then
     fi
 fi
 
-if [[ ! "$(command -v ansible-playbook)" ]]; then
+if ! [[ "$(command -v ansible-playbook)" ]]; then
     pip3 install ansible
 fi
 
