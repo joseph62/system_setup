@@ -13,7 +13,7 @@ then
     elif  [ "$NAME" = "Fedora Linux" ]
     then
         sudo dnf install python3-pip
-    elif [ "$OSTYPE" = "darwin"* ]
+    elif [ "${OSTYPE#darwin}" != "$OSTYPE" ] # darwin prefix in OSTYPE
     then
         if [ "$(command -v brew)" = "" ]
        	then
@@ -32,4 +32,5 @@ then
 fi
 
 script_dir="$(dirname $0)"
+ansible-galaxy collection install community.general
 ansible-playbook -K "$script_dir/main.yml" $@
