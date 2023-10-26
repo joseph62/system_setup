@@ -102,6 +102,7 @@
           - exa
           - ripgrep
           - bat
+          - cargo-update
         state: present
       environment:
         PATH: "{{ lookup('env', 'HOME') }}/.cargo/bin:{{ lookup('env', 'PATH') }}"
