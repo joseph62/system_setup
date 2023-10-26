@@ -17,7 +17,6 @@
       - org.gimp.GIMP
       - org.videolan.VLC
       - io.podman_desktop.PodmanDesktop
-      - org.mozilla.firefox
       - org.kde.okular
       - us.zoom.Zoom
       - org.signal.Signal
