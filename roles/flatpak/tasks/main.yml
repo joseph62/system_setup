@@ -13,7 +13,6 @@
 - name: Install packages from flatpak
   community.general.flatpak:
     name:
-      - com.visualstudio.code
       - org.gimp.GIMP
       - org.videolan.VLC
       - io.podman_desktop.PodmanDesktop
