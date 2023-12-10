@@ -11,8 +11,13 @@
     state: link
   loop:
     - zshrc
-    - vimrc
     - gitconfig
+- name: Symlink nvim config
+  ansible.builtin.file:
+    src: "{{ lookup('env', 'HOME') }}/.local/etc/dot-files/nvim"
+    dest: "{{ lookup('env', 'HOME') }}/.config/nvim"
+    force: true
+    state: link
 - name: Make home directories
   ansible.builtin.file:
     path: "{{ lookup('env', 'HOME') }}/{{ item }}"
