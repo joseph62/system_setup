@@ -5,7 +5,7 @@
     - dotfiles
     - zsh
     - rust
-    - rtx
+    - mise
     - name: flatpak
       when: ansible_distribution != "MacOSX"
       tags: 
