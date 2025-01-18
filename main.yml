@@ -6,9 +6,10 @@
     - zsh
     - rust
     - mise
+    - uv
     - name: flatpak
       when: ansible_distribution != "MacOSX"
-      tags: 
+      tags:
         - flatpak
         - never
   tasks:
@@ -17,7 +18,10 @@
         repo: "{{ item.repo }}"
         dest: "{{ lookup('env', 'HOME') }}/{{ item.dest }}"
       loop:
-        - { repo: "https://github.com/joseph62/Scripts.git", dest: ".local/opt/Scripts" }
+        - {
+            repo: "https://github.com/joseph62/Scripts.git",
+            dest: ".local/opt/Scripts",
+          }
     - name: Install general packages from package manager
       ansible.builtin.package:
         name:
@@ -68,7 +72,7 @@
     - name: Install python build packages for fedora
       ansible.builtin.package:
         name:
-          - gcc 
+          - gcc
           - python3-devel
           - zlib
           - zlib-devel
