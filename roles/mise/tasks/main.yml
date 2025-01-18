@@ -1,17 +1,12 @@
-- name: mise is installed check
-  ansible.builtin.stat:
-    path: "{{ lookup('env', 'HOME') }}/.local/bin/mise"
-  register: mise_installation
 - name: Download mise install script
-  when: mise_installation.stat.exists == false
   ansible.builtin.get_url:
     dest: "{{ lookup('env', 'HOME') }}/Downloads/mise_install.sh"
     url: https://mise.jdx.dev/install.sh
     mode: "0777"
 - name: Invoke mise install script
-  when: mise_installation.stat.exists == false
   ansible.builtin.command:
     argv:
       - "{{ lookup('env', 'HOME') }}/Downloads/mise_install.sh"
-  environment:
-    MISE_INSTALL_PATH: "{{ lookup('env', 'HOME') }}/.local/bin/mise"
+    creates: "{{ lookup('env', 'HOME') }}/.local/bin/mise"
+    environment:
+      MISE_INSTALL_PATH: "{{ lookup('env', 'HOME') }}/.local/bin/mise"

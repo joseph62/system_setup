@@ -6,7 +6,6 @@
     - zsh
     - rust
     - mise
-    - uv
     - name: flatpak
       when: ansible_distribution != "MacOSX"
       tags:
@@ -92,11 +91,6 @@
         state: present
       when: ansible_distribution == 'Fedora'
       become: true
-    - name: Install packages from pip
-      ansible.builtin.pip:
-        name:
-          - thefuck
-        state: present
     - name: Install packages from cargo
       community.general.cargo:
         name:
@@ -109,3 +103,14 @@
         state: present
       environment:
         PATH: "{{ lookup('env', 'HOME') }}/.cargo/bin:{{ lookup('env', 'PATH') }}"
+    - name: Install tools using mise
+      ansible.builtin.shell: "mise install"
+      when: "item not in lookup('ansible.builtin.env', 'PATH').split(':') | map('basename')"
+    - name: Install tools using uv
+      ansible.builtin.shell: "uv tool install {{ item }}"
+      when: "item not in lookup('ansible.builtin.env', 'PATH').split(':') | map('basename')"
+      loop:
+        - ruff
+        - thefuck
+      environment:
+        PATH: "{{ lookup('env', 'HOME') }}/.local/bin:{{ lookup('env', 'PATH') }}"
